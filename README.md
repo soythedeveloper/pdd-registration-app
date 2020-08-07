@@ -11,4 +11,7 @@ Check out [Documentation](https://ionicframework.com/docs/developing/android) to
 ## Contributing
 
 - Fork this project
+- Create a new branch
 - Pick up a task and start developing.
+- Make a pull request to merge your work
+- Have Fun !
