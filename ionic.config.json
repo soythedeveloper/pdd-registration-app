@@ -1,5 +1,7 @@
 {
   "name": "pdd-registration-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

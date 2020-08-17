@@ -1,9 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Retreatant-checkin</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Rechercher Un retraitant</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- Add code Here-->
+<ion-content [fullscreen]="true">
+  <ion-searchbar placeholder="Entrez son code" [(ngModel)]="code"></ion-searchbar>
+  <ion-button expand="full" (click)="search()">Rechercher</ion-button>
+  <p style="color: white;text-align: center;">Les informations du retraitant :</p>
+  <ion-item>
+    <ion-label >Prènom: </ion-label>
+    <ion-input type="text" [(ngModel)]="prenom" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Nom: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="nom" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Niveau: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="niveau" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Catégorie: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="categorie" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Dortoire: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="doutoire" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Hall: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="hall" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Refectoire: </ion-label>
+    <ion-input  type="text"  [(ngModel)]="refectoire" disabled></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label >Groupe Partage: </ion-label>
+    <ion-input  type="text" [(ngModel)]="gpartage" disabled></ion-input>
+  </ion-item>
+  <ion-button color="success" >Valider</ion-button>
 </ion-content>

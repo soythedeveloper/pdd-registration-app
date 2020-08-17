@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'retreatant-checkin-confirm',
     loadChildren: () => import('./retreatant-checkin-confirm/retreatant-checkin-confirm.module').then( m => m.RetreatantCheckinConfirmPageModule)
+  },  {
+    path: 'registration',
+    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
   },
+
 ];
 
 @NgModule({
