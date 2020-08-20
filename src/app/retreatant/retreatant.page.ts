@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-retreatant',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetreatantPage implements OnInit {
 
-  constructor() { }
+  listRetraitant ;
+  busy: boolean = false;
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    this.getRetraitantList();
+  }
+
+  getRetraitantList(){
+    this.busy=true;
+    this.http
+    .get('https://us-central1-project-pdd-registration.cloudfunctions.net/getRetraitants')
+    .subscribe((data: any)=>{
+      console.log(data);
+      this.listRetraitant = data;
+      this.busy=false;
+    });
   }
 
 }

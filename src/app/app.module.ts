@@ -17,20 +17,25 @@ import { AngularFireAuthModule } from 'angularfire2/auth'; */
 
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { ShareModule } from './share.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(),
      AppRoutingModule,
      AngularFireModule.initializeApp(firebaseConfig),
      //AngularFireModule.initializeApp(environment),
-     AngularFireAuthModule
+     AngularFireAuthModule,
+     ShareModule
     ],
   providers: [
     AuthService,
+    HttpClient,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

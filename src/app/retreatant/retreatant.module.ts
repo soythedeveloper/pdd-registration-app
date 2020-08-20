@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RetreatantPageRoutingModule } from './retreatant-routing.module';
 
 import { RetreatantPage } from './retreatant.page';
+import { ShareModule } from '../share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RetreatantPageRoutingModule
+    RetreatantPageRoutingModule,
+    ShareModule
   ],
   declarations: [RetreatantPage]
 })

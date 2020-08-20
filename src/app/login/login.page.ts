@@ -14,8 +14,12 @@ export class LoginPage implements OnInit {
   }
 
 
-  searchRet(){
-    this.route.navigate(['retreatant-checkin'])
+  searchRetPage(){
+    this.route.navigate(['retreatant-checkin']);
+  }
+
+  RetListPage(){
+    this.route.navigate(['retreatant']);
   }
 
 }

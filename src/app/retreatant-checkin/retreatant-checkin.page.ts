@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-retreatant-checkin',
@@ -7,9 +8,9 @@ import {AngularFireDatabase} from '@angular/fire/database';
   styleUrls: ['./retreatant-checkin.page.scss'],
 })
 export class RetreatantCheckinPage implements OnInit {
-code : string
-  constructor(public afd:AngularFireDatabase) { 
-    
+code : string;
+  constructor(public afd:AngularFireDatabase, private http:HttpClient) {
+
   }
 
   ngOnInit() {

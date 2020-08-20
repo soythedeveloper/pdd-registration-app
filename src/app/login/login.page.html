@@ -6,7 +6,7 @@
 
 <ion-content class="bg_class">
   <div class="flex">
-    <ion-card (click)="searchRet()">
+    <ion-card (click)="searchRetPage()">
       <ion-item lines="none" color="primary">
           <ion-icon name="search" slot="start"></ion-icon>
           <ion-icon name="more" slot="end"></ion-icon>
@@ -18,7 +18,7 @@
       </ion-item>
     </ion-card>
 
-    <ion-card >
+    <ion-card (click)="RetListPage()">
       <ion-item lines="none" color="success">
           <ion-icon name="people" slot="start"></ion-icon>
           <ion-icon name="more" slot="end"></ion-icon>

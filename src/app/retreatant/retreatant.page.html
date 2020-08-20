@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Retreatant</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Liste des Retraitans</ion-title>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Add code Here-->
+  <app-loading *ngIf="busy"></app-loading>
+  <ion-card *ngFor="let retraitant of listRetraitant">
+    <ion-card-header>
+      <ion-card-subtitle>{{ retraitant.Nom }} {{ retraitant.Prenom }} </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Niveau: {{ retraitant.Niveau }}</p>
+      <p>Hall: {{ retraitant.Hall }}</p>
+      <p>Dortoir: {{ retraitant.Dortoir }}</p>
+      <p>Refectoire: {{ retraitant.Refectoire }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
