@@ -10,10 +10,25 @@ export class RetreatantPage implements OnInit {
 
   listRetraitant ;
   busy: boolean = false;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) 
+  {}
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.getRetraitantList();
+  }
+
+  FilterJSONData(ev)
+  {
+    const val = ev.target.value;
+    if(val && val.trim() != '')
+    {
+      this.listRetraitant = this.listRetraitant.filter((item)=>{
+        return (item.Nom.toLowerCase().indexOf(val.toLowerCase())>-1);
+      });
+    }else{
+      this.getRetraitantList();
+    }
   }
 
   getRetraitantList(){
