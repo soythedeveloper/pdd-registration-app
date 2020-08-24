@@ -1,0 +1,26 @@
+.linear_bg {
+    background-color: linear-gradient(
+        197deg, 
+        #fdbb2d 0%, 
+        #1a2a6c 100%
+    ) !important;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+ion-card {
+    width: 46%;
+    margin: 7px;
+}
+
+.bg_class{
+    --background: linear-gradient(
+        197deg, 
+        #16A085,
+        #F4D03F, 
+        #1a2a6c 100%
+    ) !important;
+}
+
