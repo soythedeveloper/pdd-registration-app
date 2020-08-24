@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { HttpClient } from "@angular/common/http";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-retreatant-checkin',
@@ -23,7 +24,7 @@ busy: boolean = false;
 valider: boolean = false;
 
 infoRetraitant ;
-  constructor(public afd:AngularFireDatabase, private http:HttpClient) {
+  constructor(public afd:AngularFireDatabase, private http:HttpClient,private alert:AlertController) {
 
   }
 
@@ -52,6 +53,20 @@ infoRetraitant ;
       console.log(this.id);
       this.busy = false;
       this.valider = true;
+    },
+    (err:any) => {
+      this.nom = '';
+      this.prenom = '';
+      this.niveau = '';
+      this.categorie = '';
+      this.hall = '';
+      this.dortoire = '';
+      this.refectoire = '';
+      this.gpartage = '';
+      this.id = '';
+      this.showAlert("Erreur !","Aucun retraitant ne possède le code "+this.code);
+      this.busy = false;
+      this.valider = false;
     });
   }
 
@@ -63,6 +78,15 @@ infoRetraitant ;
     )
   }
 
+  async showAlert(header: string,message: string){
+    const alert = await this.alert.create({
+      header,
+      message,
+      buttons: ["ok"]
+    });
+
+    (await alert).present();
+  }
   
 
 }

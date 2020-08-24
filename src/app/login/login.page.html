@@ -1,10 +1,10 @@
 <ion-header >
   <ion-toolbar color="success">
-    <ion-title>Menu</ion-title>
+    <ion-title>CR Apps</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg_class">
+<!--<ion-content class="bg_class">
   <div class="flex">
     <ion-card (click)="searchRetPage()">
       <ion-item lines="none" color="primary">
@@ -30,4 +30,17 @@
       </ion-item>
     </ion-card>
   </div>
-</ion-content>
+</ion-content>!-->
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="retreatant">
+      <ion-icon name="people-circle-outline"></ion-icon>
+      <ion-label>Retraitants</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="retreatant-checkin">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-label>Check Retraitant</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

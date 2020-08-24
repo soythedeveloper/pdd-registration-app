@@ -15,14 +15,14 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
+  /*{
     path: 'retreatant',
     loadChildren: () => import('./retreatant/retreatant.module').then( m => m.RetreatantPageModule)
   },
   {
     path: 'retreatant-checkin',
     loadChildren: () => import('./retreatant-checkin/retreatant-checkin.module').then( m => m.RetreatantCheckinPageModule)
-  },
+  },*/
   {
     path: 'retreatant-checkin-info',
     loadChildren: () => import('./retreatant-checkin-info/retreatant-checkin-info.module').then( m => m.RetreatantCheckinInfoPageModule)
@@ -30,7 +30,8 @@ const routes: Routes = [
   {
     path: 'retreatant-checkin-confirm',
     loadChildren: () => import('./retreatant-checkin-confirm/retreatant-checkin-confirm.module').then( m => m.RetreatantCheckinConfirmPageModule)
-  },  {
+  },
+  {
     path: 'registration',
     loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
   },
