@@ -21,6 +21,10 @@ const routes: Routes = [
                 loadChildren: () => import('../retreatant-checkin-info/retreatant-checkin-info.module').then( m => m.RetreatantCheckinInfoPageModule)
             },
             {
+                path: 'registration',
+                loadChildren: () => import('../registration/registration.module').then( m => m.RegistrationPageModule)
+            },
+            {
                 path: '',
                 redirectTo: '/login/retreatant',
                 pathMatch: 'full'

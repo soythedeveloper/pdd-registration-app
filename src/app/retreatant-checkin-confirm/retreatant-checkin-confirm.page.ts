@@ -3,11 +3,13 @@ import {FormControl} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-retreatant-checkin-confirm',
   templateUrl: './retreatant-checkin-confirm.page.html',
   styleUrls: ['./retreatant-checkin-confirm.page.scss'],
+  providers: [DatePipe]
 })
 export class RetreatantCheckinConfirmPage implements OnInit {
   viewNResp : boolean=false ;
@@ -17,13 +19,23 @@ export class RetreatantCheckinConfirmPage implements OnInit {
   nomRetraitant:string;
   nomRespo:string;
   nomRetir:string;
+  myDate = new Date();
+  dateRe:string;
 
 
-  constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient,private alert:AlertController)
+  constructor(
+    private router:Router,
+    private route:ActivatedRoute,
+    private http:HttpClient,
+    private alert:AlertController,
+    private datePipe:DatePipe
+    )
   { 
   }
 
   ngOnInit() {
+    //je recupere la date
+    this.dateRe = this.datePipe.transform(this.myDate,'dd/MM/yyyy,h:mm a');
     //recuper les valeurs passer en param depuis 
     // la page précedente (conf)
     this.route.queryParams.subscribe(params=>{
@@ -65,7 +77,7 @@ export class RetreatantCheckinConfirmPage implements OnInit {
       this.nomRetir='Resp-'+this.nomRespo;
     }
     this.http
-    .get('https://us-central1-project-pdd-registration.cloudfunctions.net/validationRetrait?id='+this.data[0]['retraitantID']+'&recepteur='+this.nomRetir)
+    .get('https://us-central1-project-pdd-registration.cloudfunctions.net/validationRetrait?id='+this.data[0]['retraitantID']+'&recepteur='+this.nomRetir+'&date='+this.dateRe)
     .subscribe(data=>{
       console.log("reponse:",data['succes']);
       this.showAlert("Succès","Vous pouvez remettre le Badge");

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras  } from '@angular/router';
 import { UserService } from '../user.service';
 
 
@@ -26,7 +26,13 @@ export class HomePage {
           username,
           uid: res.user.uid
         });
-        this.router.navigate(['login']);
+
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            user: username
+          }
+        };
+        this.router.navigate(['login/retreatant'],navigationExtras);
       }
       
     }catch(err){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-retreatant',
@@ -10,12 +11,29 @@ export class RetreatantPage implements OnInit {
 
   listRetraitant ;
   busy: boolean = false;
-  constructor(private http:HttpClient) 
+  data:any;
+  user:string;
+  admin:boolean=false;
+  constructor(private http:HttpClient,private route:ActivatedRoute) 
   {}
 
   ngOnInit() 
   {
     this.getRetraitantList();
+
+    this.route.queryParams.subscribe(params=>{
+      console.log('params:',params);
+      if(params && params.user)
+      {
+        this.data = params;
+        this.user=this.data['user'];
+        console.log('user:',this.user);
+        if(this.user.includes('admin'))
+        {
+          this.admin=true;
+        }
+      }
+    });
   }
 
   FilterJSONData(ev)

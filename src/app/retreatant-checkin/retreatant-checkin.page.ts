@@ -55,7 +55,6 @@ infoRetraitant ;
       console.log(data[0]);
       console.log(data[0]['Nom']);
       console.log(this.id);
-      console.log(data[0]['badge_recepteur']);
       this.busy = false;
       if(data[0]['badge_recepteur']!=null)
       {
