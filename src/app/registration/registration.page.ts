@@ -34,7 +34,7 @@ export class RegistrationPage implements OnInit {
   async register(){
     const { username, password, cpassword } = this
     if(password !== cpassword ){
-      this.showAlert("Erreur !","Les 2 mots de passe sont égaux");
+      this.showAlert("Erreur !","Les 2 mots de passe ne sont pas égaux");
       return console.error("Passwords don't match");
     }
     if(password.length <= 5 ){
