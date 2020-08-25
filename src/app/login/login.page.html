@@ -1,36 +1,3 @@
-<ion-header >
-  <ion-toolbar color="success">
-    <ion-title>CR Apps</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<!--<ion-content class="bg_class">
-  <div class="flex">
-    <ion-card (click)="searchRetPage()">
-      <ion-item lines="none" color="primary">
-          <ion-icon name="search" slot="start"></ion-icon>
-          <ion-icon name="more" slot="end"></ion-icon>
-      </ion-item>
-      <ion-item lines="none" color="primary">
-          <ion-label >
-                Check retreatant
-          </ion-label>
-      </ion-item>
-    </ion-card>
-
-    <ion-card (click)="RetListPage()">
-      <ion-item lines="none" color="success">
-          <ion-icon name="people" slot="start"></ion-icon>
-          <ion-icon name="more" slot="end"></ion-icon>
-      </ion-item>
-      <ion-item color="success" lines="none">
-          <ion-label>
-                List of retreatant
-          </ion-label>
-      </ion-item>
-    </ion-card>
-  </div>
-</ion-content>!-->
 <ion-tabs>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="retreatant">
@@ -40,7 +7,12 @@
 
     <ion-tab-button tab="retreatant-checkin">
       <ion-icon name="checkmark-circle-outline"></ion-icon>
-      <ion-label>Check Retraitant</ion-label>
+      <ion-label>Check</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="retreatant-checkin-info">
+      <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+      <ion-label>Validés</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Retreatant-checkin-info</ion-title>
+  <ion-toolbar color="success">
+    <ion-title>Badges Retirés</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="success">
+    <ion-searchbar placeholder="Entrez le nom" (ionInput)="FilterJSONData($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Add code Here-->
+  <app-loading *ngIf="busy"></app-loading>
+  <ion-card *ngFor="let retraitant of listRetraitant">
+    <ion-card-header *ngIf="retraitant.badge_recepteur">
+      <ion-card-subtitle>{{ retraitant.Nom }}</ion-card-subtitle>
+      <ion-card-title>{{ retraitant.Prenom  }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="retraitant.badge_recepteur">
+      <p>Niveau: {{ retraitant.Niveau }}</p>
+      <p>Retiré Par: {{ retraitant.badge_recepteur }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
