@@ -1,7 +1,6 @@
 <ion-header >
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
       <ion-title>Rechercher Un retraitant</ion-title>
     </ion-buttons>
   </ion-toolbar>
@@ -14,35 +13,35 @@
   <app-loading *ngIf="busy"></app-loading>
   <ion-item>
     <ion-label >Prènom: </ion-label>
-    <ion-input type="text" [(ngModel)]="prenom" disabled></ion-input>
+    <ion-input type="text" [(ngModel)]="prenom" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Nom: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="nom" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="nom" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Niveau: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="niveau" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="niveau" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Catégorie: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="categorie" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="categorie" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Dortoire: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="dortoire" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="dortoire" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Hall: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="hall" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="hall" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Refectoire: </ion-label>
-    <ion-input  type="text"  [(ngModel)]="refectoire" disabled></ion-input>
+    <ion-input  type="text"  [(ngModel)]="refectoire" readonly></ion-input>
   </ion-item>
   <ion-item>
     <ion-label >Groupe Partage: </ion-label>
-    <ion-input  type="text" [(ngModel)]="gpartage" disabled></ion-input>
+    <ion-input  type="text" [(ngModel)]="gpartage" readonly></ion-input>
   </ion-item>
-  <ion-button color="success" *ngIf="valider; else disabled">Valider</ion-button>
+  <ion-button color="success" *ngIf="valider; else disabled" (click)="validerRetraitant()">Valider</ion-button>
 </ion-content>

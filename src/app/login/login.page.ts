@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,18 +8,27 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private route:Router) { }
+  admin: boolean = false;
+  data:any;
+  user:string;
+
+  constructor(private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params=>{
+      console.log('params:',params);
+      if(params && params.user)
+      {
+        this.data = params;
+        this.user=this.data['user'];
+        console.log('user:',this.user);
+        if(this.user.includes('admin'))
+        {
+          this.admin=true;
+        }
+      }
+    });
   }
 
-
-  searchRetPage(){
-    this.route.navigate(['retreatant-checkin']);
-  }
-
-  RetListPage(){
-    this.route.navigate(['retreatant']);
-  }
 
 }

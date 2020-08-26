@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { HttpClient } from "@angular/common/http";
 import { AlertController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-retreatant-checkin',
@@ -20,11 +21,13 @@ refectoire:string;
 gpartage:string;
 id:string;
 
+data1:any;
+
 busy: boolean = false;
 valider: boolean = false;
 
 infoRetraitant ;
-  constructor(public afd:AngularFireDatabase, private http:HttpClient,private alert:AlertController) {
+  constructor(public afd:AngularFireDatabase, private http:HttpClient,private alert:AlertController,private router:Router) {
 
   }
 
@@ -38,6 +41,7 @@ infoRetraitant ;
     this.http
     .get('https://us-central1-project-pdd-registration.cloudfunctions.net/verifCode?code='+code)
     .subscribe((data: any)=>{
+      this.data1=data;
       this.infoRetraitant = data[0];
       this.nom = data[0]['Nom'];
       this.prenom = data[0]['Prenom'];
@@ -52,7 +56,15 @@ infoRetraitant ;
       console.log(data[0]['Nom']);
       console.log(this.id);
       this.busy = false;
-      this.valider = true;
+      if(data[0]['badge_recepteur']!=null)
+      {
+        this.showAlert('Attention','Son Badge a déjà été retiré !');
+        this.valider = false;
+      }
+      else
+      {
+        this.valider = true;
+      }
     },
     (err:any) => {
       this.nom = '';
@@ -76,6 +88,18 @@ infoRetraitant ;
         console.log(data);
       }
     )
+  }
+
+  validerRetraitant()
+  {
+    //on se deplace vers la page de validation 
+    //en envoyant les infos du retraitant
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        retraitant: JSON.stringify(this.data1)
+      }
+    };
+    this.router.navigate(['retreatant-checkin-confirm'],navigationExtras);
   }
 
   async showAlert(header: string,message: string){

@@ -1,5 +1,5 @@
 {
-  "name": "pdd-registration-app",
+  "name": "CR Apps",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -44,6 +44,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cordova-android": "^5.1.1",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
@@ -74,6 +75,8 @@
       },
       "cordova-plugin-ionic-keyboard": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }
