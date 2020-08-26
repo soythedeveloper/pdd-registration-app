@@ -82,6 +82,11 @@ export class RetreatantCheckinConfirmPage implements OnInit {
       console.log("reponse:",data['succes']);
       this.showAlert("Succès","Vous pouvez remettre le Badge");
     });
+    this.http
+    .get('http://localhost:5000/project-pdd-registration/us-central1/addRetraitBadge?nomR='+this.data[0]['Nom']+' '+this.data[0]['Prenom']+'&retirePar='+this.nomRetir+'&date='+this.dateRe+'&retraite='+this.data[0]['Retraite'])
+    .subscribe(data=>{
+      console.log("reponse:",data['message']);
+    });
     this.router.navigate(['login/retreatant-checkin-info']);
   }
 
